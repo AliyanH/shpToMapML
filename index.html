@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>shp → mapml</title>
+
+	<script src="http://rs1.adc4gis.com/js/openlayers/2.9.1/OpenLayers-Proj4.js"></script>
+	<script src="stream.js"></script>
+	<script src="shapefile.js"></script>
+	<script src="dbf.js"></script>
+
+	<!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@maps4html/web-map-custom-element/dist/mapml-viewer.js"
+		crossorigin></script> -->
+	<script type="module" src="./dist/mapml-viewer.js" crossorigin></script>
+	<script src="./assets/script.js"></script>
+	<link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+	<h1>ShapeFile to MapML</h1>
+	Convert an <a href="https://doc.arcgis.com/en/arcgis-online/reference/shapefiles.htm">ESRI .shp</a> file to an equivalent <a href="https://maps4html.org/web-map-doc/docs/layers/layer/">HTML/MapML layer</a>.
+	<div class="steps">
+		<ol start="4">
+			<li>Have an ESRI shp and dbf file handy on your computer</li>
+			<li>Use the "Choose Files" button to only upload the SHP file and optionally it's associated DBF file</li>
+			<li>Add the relevant options your require in the input boxes based on the <a href="https://maps4html.org/web-map-doc/docs/api/mapml-viewer-api#options">MapML docs</a>.</li>
+			<li>Once your options are set (or left empty) press the "Convert" button</li>
+			<li>You now should have a new mapml layer added to the map below, ready to be copied through<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspthe top right layer control and used on any MapML viewer.</li>
+			<li>Enjoy!</li>
+		</ol>
+	</div>
+
+	<span style="font-weight: bold;">Optional MapML properties</span>
+	<br>
+	<label for="shpFile">Choose a SHP (& associated DBF) file(s):</label>
+	<input type="file" id="shpFile" name="shpFile" accept=".shp,.dbf" multiple />
+	<br><br>
+
+	<span style="font-weight: bold;">Optional <a href="https://maps4html.org/web-map-doc/docs/api/mapml-viewer-api#options">MapML properties</a></span>
+	<table>
+		<thead>
+			<tr>
+				<td>Property Name</td>
+				<td>Value</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><label for="label">label: (defaults to file name)</label></td>
+				<td><input type="text" id="label" name="label"></td>
+			</tr>
+			<tr>
+				<td><label for="projection">projection:</label></td>
+				<td><input type="text" id="projection" name="projection"></td>
+			</tr>
+			<tr>
+				<td><label for="caption">caption:</label></td>
+				<td><input type="text" id="caption" name="caption"></td>
+			</tr>
+			<tr>
+				<td><label for="properties">properties:</label></td>
+				<td><input type="text" id="properties" name="properties"></td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<button onclick="shpToMapML()">Convert</button>
+
+	<h2>Output MapML</h2>
+	<mapml-viewer width="600" height="600" controls zoom="2" lon="-67" lat="47">
+		<layer- label="OpenStreetMap" src="https://maps4html.org/web-map-doc/demo/data/osm.mapml" checked=""></layer->
+	</mapml-viewer>
+</body>
+
+</html>

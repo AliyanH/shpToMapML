@@ -1,0 +1,111 @@
+html,
+body {
+	height: 100%;
+	text-align: center;
+	background-color: #ebe7e7;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+	margin: 0;
+	line-height: 1.5;
+
+}
+
+mapml-viewer:defined,
+[is="web-map"]:defined {
+	height: 40%;
+	width: 400;
+	vertical-align: middle;
+	background-color: #aad3df;
+}
+
+.steps {
+	text-align: left;
+	display: flex;
+	justify-content: center;
+}
+
+button {
+	background-color: #009879;
+	/* Green */
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	border: 2px solid black;
+	border-radius: 4px;
+}
+
+button:hover {
+	background-color: white;
+	color: #009879;
+	border: 2px solid #009879;
+}
+
+ol {
+	list-style: none;
+	counter-reset: item;
+}
+
+li {
+	counter-increment: item;
+	margin-bottom: 5px;
+}
+
+li:before {
+	margin-right: 10px;
+	content: counter(item);
+	background: #24917b;
+	border-radius: 100%;
+	color: white;
+	width: 1.2em;
+	text-align: center;
+	display: inline-block;
+}
+
+ol li::marker {
+	background: #24917b;
+	color: white;
+}
+
+table {
+	margin: 0 auto;
+	border-collapse: collapse;
+	font-size: 0.9em;
+	font-family: sans-serif;
+	min-width: 400px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+thead tr {
+	background-color: #009879;
+	color: #ffffff;
+}
+
+th,
+td {
+	padding: 12px 15px;
+}
+
+tbody tr {
+	border-bottom: thin solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+	background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+	border-bottom: 2px solid #009879;
+}
+
+tbody tr:hover {
+	color: #009879;
+}

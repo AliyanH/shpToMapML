@@ -1,0 +1,4 @@
+/*! @maps4html/web-map-custom-element 01-10-2023 */
+
+class MapMeta extends HTMLElement{static get observedAttributes(){return["name","content"]}get name(){return this.getAttribute("name")}set name(t){["projection","extent","cs","zoom"].includes(t)&&this.setAttribute("name",t)}get content(){return this.getAttribute("content")}set content(t){"cs"===this.name&&!["tcrs","tilematrix","pcrs","gcrs","map","tile"].includes(t)||this.setAttribute("content",t)}attributeChangedCallback(t,e,n){t}constructor(){super()}connectedCallback(){console.log("map-meta connected")}disconnectedCallback(){}zoomTo(){var t;"extent"===this.name&&(console.log("can zoom"),t=M._metaContentToObject(this.content),console.log(t),t=L.bounds(L.point([t["top-left-longitude"],t["top-left-latitude"]]),L.point([t["bottom-right-longitude"],t["bottom-right-latitude"]])),console.log(t),document.querySelector("mapml-viewer")._map.fitBounds(t))}}export{MapMeta};
+//# sourceMappingURL=map-meta.js.map
